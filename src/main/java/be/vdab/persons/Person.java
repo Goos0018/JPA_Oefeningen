@@ -30,6 +30,9 @@ public class Person {
                 nullable = false)
     private String lastName;
 
+    @Embedded
+    private Address address = new Address();
+
     //@Temporal(TemporalType.DATE)
     @Column (name="BIRTHDAY")
     private LocalDate birthDay;
@@ -155,6 +158,14 @@ public class Person {
         this.homepage = homepage;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -162,6 +173,7 @@ public class Person {
                 ", version=" + version +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", address=" + address +
                 ", birthDay=" + birthDay +
                 ", gender=" + gender +
                 ", picture=" + Arrays.toString(picture) +

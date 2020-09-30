@@ -19,6 +19,13 @@ public class SavePerson {
             person.setFirstName("Thomas");
             person.setLastName("Goos");
             person.setGender(GenderType.MALE);
+            Address address = new Address();
+            address.setStreet("Dirkputstraat");
+            address.setNumber("440");
+            address.setZipCode("2850");
+            address.setCity("Boom");
+            address.setCountry("Belgium");
+            person.setAddress(address);
             em.persist(person);
             tx.commit();
             System.out.println("Person saved");
